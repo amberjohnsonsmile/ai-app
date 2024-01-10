@@ -11,5 +11,6 @@ export default async function handler(
     messages: [{ role: 'user', content: req.body.text }],
     model: 'gpt-3.5-turbo'
   })
+  console.log(JSON.stringify(completion))
   res.status(200).json({ result: completion })
 }

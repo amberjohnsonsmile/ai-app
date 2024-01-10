@@ -11,7 +11,7 @@ export default function Home() {
   )
 
   const handleOnClick = async () => {
-    setOutput("Thinking about your question")
+    setOutput("Thinking...")
 
     const response = await fetch("/api/hello", {
       method: "POST",
@@ -23,7 +23,7 @@ export default function Home() {
 
     const data = await response.json()
     setInput("")
-    setOutput(data.result.choices[0].text)
+    setOutput(data.result.choices[0].message.content)
   }
 
   return (
